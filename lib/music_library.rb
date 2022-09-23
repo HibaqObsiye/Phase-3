@@ -14,6 +14,8 @@ class MusicLibrary
     end
     
     def search(keyword) 
-        @track_list.select{|track| track.matches?(keyword)}
+        @track_list.map do |track|
+         track if track.matches?(keyword)
+        end.compact
     end
   end
